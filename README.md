@@ -26,12 +26,15 @@ typedef struct variable_struct {
 This is some code in the Nisse language:
 ```rust
 fn test(a=7, b=9){
-  hello = 6 + 7 * 3
-  hello = 7 + 8
+  hello = (6 + 7) * 3 + 6
+  hello *= 7 + 8
   hello += 9
+  ret hello
 }
+
 fn main(argc, argv){
   test(4, 1)
+  ret 0
 }
 ```
 This is the DynIR that the Tontu compiler produces:
@@ -41,24 +44,24 @@ INIT: a = 7
 INIT: b = 9
 a
 b
-DEFINE: jay
+DEFINE: test
 NEW SCOPE
-NEW SSA: 7 * 3
-SSA: 6 + SSA
+NEW SSA: 6 + 7
+SSA: SSA * 3
+SSA: SSA + 6
 INIT: hello = SSA
 NEW SSA: 7 + 8
+NEW SSA: hello * SSA
 ASSIGN: hello = SSA
 NEW SSA: hello + 9
 ASSIGN: hello = SSA
+RETURN: hello
 END SCOPE
 ARG DEF: 
 argc
 argv
 DEFINE: main
 NEW SCOPE
-ARG DEF: 
-4
-1
-CALL: jay
+RETURN: 0
 END SCOPE
 ```
