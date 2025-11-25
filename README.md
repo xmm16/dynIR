@@ -66,6 +66,6 @@ RETURN: 0
 END SCOPE
 ```
 # Quick note
-This project uses C-style C++, so other than the LLVM library, all the logic should also be valid in C.
+This project uses C-style C++, so other than the LLVM library usage, all the logic should also be valid in C.
 # Credits
 Created by s1santhosh, alange12, xmm16, and namithchelikani
