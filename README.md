@@ -25,7 +25,7 @@ typedef struct variable_struct {
 # How it looks
 This is some code in the Nisse language:
 ```rust
-fn test(a=7, b=9){
+fn test_f(a=7, b=9){
   hello = (6 + 7) * 3 + 6
   hello *= 7 + 8
   hello += 9
@@ -33,7 +33,7 @@ fn test(a=7, b=9){
 }
 
 fn main(argc, argv){
-  test(4, 1)
+  test_f(4, 1)
   ret 0
 }
 ```
@@ -44,7 +44,7 @@ INIT: a = 7
 INIT: b = 9
 a
 b
-DEFINE: test
+DEFINE: test_f
 NEW SCOPE
 NEW SSA: 6 + 7
 SSA: SSA * 3
