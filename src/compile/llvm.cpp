@@ -1,1 +1,1 @@
-// this will be the file to convert from DynIR to LLVM IR using the LLVM C++ API
+// this will be the file to convert from DynIR to LLVM IR using the LLVM C++ library
