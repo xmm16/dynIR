@@ -62,6 +62,10 @@ argc
 argv
 DEFINE: main
 NEW SCOPE
+ARG DEF
+4
+1
+CALL: test_f
 RETURN: 0
 END SCOPE
 ```
